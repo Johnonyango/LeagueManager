@@ -45,8 +45,8 @@ public class AuthServlet extends HttpServlet {
                 if (rs.next())
                     return true;
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
         return false;
     }
