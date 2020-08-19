@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>School Departments</title>
+</head>
+<body>
+<form name="frm" method="post" action="Auth" onSubmit="return validateForm()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td width="22%"></td>
+        <td width="78%"></td>
+    </tr>
+    <tr>
+        <td>Enter Name</td>
+        <td><input type="text" name="username"/></td>
+    </tr>
+    <tr>
+        <td>Enter Password</td>
+        <td><input type="text" name="pwd"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" name="submit" value="Submit"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+</form>
+<script>
+function validateForm() {
+    if(document.frm.username.value==""){
+    alert("Username field empty...");
+    document.frm.username.focus();
+    return false;
+    }
+    else if (document.frm.pwd.value==""){
+    alert("invalid password");
+    document.frm.pwd.focus();
+    return false;
+    }
+    }
+</script>
+</body>
+</html>
