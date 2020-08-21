@@ -1,6 +1,9 @@
 com/john/internship/connection/db/DbConnection.class
+com/john/internship/logic/TeamLogic.class
 com/john/internship/connection/db/DbConnectionI.class
-com/john/internship/model/Team.class
-com/john/internship/servlets/AuthServlet.class
+com/john/internship/servlets/ShowTeams.class
 com/john/internship/servlets/HelloServlet.class
 com/john/internship/listeners/DbConnectionListener.class
+com/john/internship/model/Team.class
+com/john/internship/servlets/AuthServlet.class
+com/john/internship/logic/TeamInterface.class
