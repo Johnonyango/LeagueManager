@@ -4,13 +4,9 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-<!--  <servlet>-->
-<!--    <servlet-name>Hello</servlet-name>-->
-<!--    <servlet-class>com.john.internship.servlets.HelloServlet</servlet-class>-->
-<!--  </servlet>-->
-
-<!--  <servlet-mapping>-->
-<!--    <servlet-name>Hello</servlet-name>-->
-<!--    <url-pattern>/Hey</url-pattern>-->
-<!--  </servlet-mapping>-->
+  <welcome-file-list>
+    <welcome-file>login.html</welcome-file>
+    <welcome-file>myindex.htm</welcome-file>
+    <welcome-file>mydefaultpage.htm</welcome-file>
+  </welcome-file-list>
 </web-app>

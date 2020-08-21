@@ -33,14 +33,15 @@ public class AuthServlet extends HttpServlet {
             resp.sendRedirect("home.jsp");
 //            resp.getWriter().println("Login successful " + username);
         }else
-            resp.getWriter().println("Invalid credentials" );
+            resp.getWriter().println("Invalid credentials" +username+password);
     }
     public boolean doLogin(String username, String password){
         try {
             if (dbConnection!=null) {
                 Connection connection = dbConnection.getConnection();
-                PreparedStatement st = connection.prepareStatement("SELECT * FROM `teachers` WHERE name=?");
+                PreparedStatement st = connection.prepareStatement("SELECT * FROM `admins` WHERE name=? && `password`=?");
                 st.setString(1, username);
+                st.setString(2,password);
                 ResultSet rs = dbConnection.executeQuery(st);
                 if (rs.next())
                     return true;
