@@ -15,8 +15,11 @@ import java.io.PrintWriter;
 public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        int age = request.getIntHeader("age");
+        String town = request.getParameter("town");
         PrintWriter writer = response.getWriter();
-        writer.println("This is my first servlet");
+        writer.println("Hello Mr. " + name +" of age " +age+" from" +town+" Welcome to this tutorial");
     }
 
     @Override

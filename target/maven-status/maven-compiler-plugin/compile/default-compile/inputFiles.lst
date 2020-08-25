@@ -4,6 +4,7 @@
 /home/john/LeagueManager/src/main/java/com/john/internship/logic/TeamInterface.java
 /home/john/LeagueManager/src/main/java/com/john/internship/connection/db/DbConnection.java
 /home/john/LeagueManager/src/main/java/com/john/internship/listeners/DbConnectionListener.java
+/home/john/LeagueManager/src/main/java/com/john/internship/servlets/UpdateTeams.java
 /home/john/LeagueManager/src/main/java/com/john/internship/servlets/HelloServlet.java
 /home/john/LeagueManager/src/main/java/com/john/internship/logic/TeamLogic.java
 /home/john/LeagueManager/src/main/java/com/john/internship/connection/db/DbConnectionI.java

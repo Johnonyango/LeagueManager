@@ -21,7 +21,7 @@ public class TeamLogic implements TeamInterface {
     @Override
     public boolean add(Team team) throws SQLException {
         PreparedStatement st = this.dbConnectionI
-                .getConnection().prepareStatement("INSERT INTO teams(Name, teamCode, numberOfGames, P, Points) VALUES(?, ?, ?, ?,?)");
+                .getConnection().prepareStatement("INSERT INTO Employee(Name, teamCode, numberOfGames, P, Points) VALUES(?, ?, ?, ?,?)");
         st.setString(1, team.getName());
         st.setString(2, team.getTeamCode());
         st.setLong(3, team.getNumberOfGames());

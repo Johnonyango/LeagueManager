@@ -15,6 +15,7 @@ public class DbConnectionListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+        System.out.println("Context listening now**************************");
         try {
             dbConnection = new DbConnection();
             ServletContext scx = sce.getServletContext();
