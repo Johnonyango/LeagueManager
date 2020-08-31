@@ -7,6 +7,22 @@
   <title>League Table</title>
 </head>
 <body>
+
+<%
+String first_name = "John";
+String last_name = "Onyango";
+int age = 21;
+String address = "Nairobi";
+
+session.setAttribute("fname", first_name);
+session.setAttribute("lname", last_name);
+session.setAttribute("hisAge", age);
+session.setAttribute("hisAddress", address);
+
+%>
+<a href="display.jsp">Display page</a>
+<a href="error.jsp">Error page</a>
+
   <div class="container">
      <div id="table">
      </div>
