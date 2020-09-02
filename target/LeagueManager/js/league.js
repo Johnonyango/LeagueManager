@@ -1,7 +1,59 @@
 (function(){
-   teams.loadData.call({
-   dataUrl: 'Teams?action=show'
-   })
+   teams.showGrid.call({
+   dataUrl: 'Teams?action=show',
+   gridStyle: 'teamRender',
+   componentId: 'organization',
+   gridColumns:[{
+            header: 'Name',
+            dataIndex: 'Name'
+        },{
+            header: 'Code',
+            dataIndex: 'teamCode'
+        },{
+             header: 'Games Played',
+             dataIndex: 'numberOfGames'
+        },{
+             header: 'Points',
+             dataIndex: 'Points'
+        }],
+        gridButtons: [{
+            label: 'Add Team',
+            cssClass: 'addButton',
+            handler: 'addButton',
+            id: 'team-addButton',
+        },{
+            label: 'Edit Team',
+            cssClass: 'editButton',
+            handler: 'editButton',
+            id: 'team-editButton',
+        },{
+            label: 'Delete Team',
+            cssClass: 'deleteButton',
+            handler: 'deleteButton',
+            id: 'team-deleteButton',
+        }],
+        formField: [{
+            label: 'Team Name',
+            name: 'Name',
+            type: 'text',
+            id: 'team-name'
+        },{
+            label: 'Team Code',
+            name: 'code',
+            type: 'text',
+            id: 'teamCode'
+        },{
+             label: 'Games',
+             name: 'games-played',
+             type: 'text',
+             id: 'games'
+             },{
+             label: 'Points',
+             name: 'points',
+             type: 'text',
+             id: 'points'
+             }]
+   });
 })();
 
 function myFunction() {

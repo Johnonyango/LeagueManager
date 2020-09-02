@@ -5,7 +5,7 @@
 <script src="js/app.js"></script>
 
     <style>
-#customers {
+#teamRender {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -35,10 +35,10 @@
 </head>
 <body>
 <%@ include file = "page/navbar.jsp"%>
-<div id="content">
+<div id="module-content">
 
 </div>
-<script src="js/league.js"></script>
 
+<script src="js/league.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <script src="js/app.js"></script>
 
     <style>
-#customers {
+#teamRender {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -16,9 +16,13 @@
   padding: 8px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(even){
+   background-color: #f2f2f2;
+}
 
-#customers tr:hover {background-color: #ddd;}
+#customers tr:hover {
+    background-color: #ddd;
+}
 
 #customers th {
   padding-top: 12px;
@@ -30,12 +34,11 @@
 </style>
 </head>
 <body>
-<% out.println(session.getAttribute("username")); %>
 <%@ include file = "page/navbar.jsp"%>
-<div id="content">
+<div id="module-content">
 
 </div>
-<script src="js/league.js"></script>
 
+<script src="js/league.js"></script>
 </body>
 </html>
