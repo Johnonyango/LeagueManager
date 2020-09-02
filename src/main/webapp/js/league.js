@@ -1,76 +1,49 @@
 (function(){
    teams.showGrid.call({
-   dataUrl: 'Teams?action=show',
-   gridStyle: 'teamRender',
-   componentId: 'organization',
+   dataUrl: 'League',
+   gridStyle: 'leagueRender',
+   componentId: 'league',
    gridColumns:[{
             header: 'Name',
-            dataIndex: 'Name'
+            dataIndex: 'name'
         },{
-            header: 'Code',
-            dataIndex: 'teamCode'
+            header: 'Country',
+            dataIndex: 'country'
         },{
-             header: 'Games Played',
-             dataIndex: 'numberOfGames'
-        },{
-             header: 'Points',
-             dataIndex: 'Points'
+             header: 'Level',
+             dataIndex: 'level'
         }],
         gridButtons: [{
-            label: 'Add Team',
+            label: 'Add League',
             cssClass: 'addButton',
             handler: 'addButton',
-            id: 'team-addButton',
+            id: 'league-addButton',
         },{
-            label: 'Edit Team',
+            label: 'Update League',
             cssClass: 'editButton',
             handler: 'editButton',
-            id: 'team-editButton',
+            id: 'league-editButton',
         },{
-            label: 'Delete Team',
+            label: 'Delete League',
             cssClass: 'deleteButton',
             handler: 'deleteButton',
-            id: 'team-deleteButton',
+            id: 'league-deleteButton',
         }],
         formField: [{
-            label: 'Team Name',
+            label: 'League Name',
             name: 'Name',
             type: 'text',
-            id: 'team-name'
+            id: 'league-name'
         },{
-            label: 'Team Code',
-            name: 'code',
+            label: 'country',
+            name: 'country',
             type: 'text',
-            id: 'teamCode'
+            id: 'country'
         },{
-             label: 'Games',
-             name: 'games-played',
+             label: 'Level',
+             name: 'level',
              type: 'number',
-             id: 'games'
-             },{
-             label: 'Points',
-             name: 'points',
-             type: 'number',
-             id: 'points'
+             id: 'level'
              }]
    });
 })();
-
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}

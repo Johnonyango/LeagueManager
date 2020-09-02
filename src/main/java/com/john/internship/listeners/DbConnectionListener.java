@@ -1,6 +1,5 @@
 package com.john.internship.listeners;
 
-import com.john.internship.connection.db.DbConnection;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
@@ -9,7 +8,6 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -28,7 +26,7 @@ public class DbConnectionListener implements ServletContextListener {
             statement = connection.createStatement();
 
             System.out.println("INFO: Creating tables");
-            statement.execute("create table if not exists team(name varchar(255), teamCode varchar(255))");
+            statement.execute("create table if not exists leagues(name varchar(255), country varchar(255), level varchar(255), seasons varchar(255))");
 
             sce.getServletContext().setAttribute("dbConnection", connection);
 
@@ -48,6 +46,16 @@ public class DbConnectionListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
+        Connection connection = (Connection) sce.getServletContext().getAttribute("dbConnection");
+
+        if (connection != null){
+            try{
+                connection.close();
+            }catch (SQLException sqlEx){
+                sqlEx.printStackTrace();
+            }
+        }
 
     }
 }
+

@@ -3,7 +3,9 @@ package com.john.internship.servlets;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.john.internship.connection.db.bean.TeamBeanI;
 import com.john.internship.model.Team;
+import org.apache.commons.beanutils.BeanUtils;
 
+import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,8 +18,10 @@ import java.sql.Connection;
 @WebServlet("/Team")
 public class TeamServlet extends HttpServlet {
 
+    @Inject
     private TeamBeanI teamBean;
 
+    @Inject
     private Team team;
 
     @Override
@@ -42,7 +46,6 @@ public class TeamServlet extends HttpServlet {
         }
 
         resp.getWriter().print(teamBean.add(dbConnection, team));
-
-    }
     }
 }
+

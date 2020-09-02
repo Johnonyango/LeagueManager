@@ -16,7 +16,7 @@ public class TeamBean implements TeamBeanI {
             return "FAILED: No Connection";
 
         if (team == null)
-            return "FAILED: No Such Team";
+            return "FAILED: No team added";
         try {
             PreparedStatement st = connection.prepareStatement("INSERT INTO teams(Name, teamCode, numberOfGames, Points) VALUES(?, ?, ?, ?)");
             st.setString(1, team.getName()==null? null: team.getName());
@@ -42,10 +42,10 @@ public class TeamBean implements TeamBeanI {
 
             while (result.next()) {
                 Team team = new Team();
-                team.setName(result.getString("Name"));
+                team.setName(result.getString("name"));
                 team.setTeamCode(result.getString("teamCode"));
                 team.setNumberOfGames(result.getLong("numberOfGames"));
-                team.setPoints(result.getLong("Points"));
+                team.setPoints(result.getLong("points"));
 
                 teams.add(team);
             }
