@@ -1,6 +1,6 @@
-var teams = teams || {};
+var leagueManager = leagueManager || {};
 
-teams.showGrid = function(){
+leagueManager.showGrid = function(){
     var me = this;
 
     var xhr = new XMLHttpRequest();
@@ -49,12 +49,12 @@ console.log(me);
             console.log('Registering event for adding form');
             if (button.handler == 'addButton')
                 document.getElementById(button.id).addEventListener('click', function(){
-                    teams.Form.call(me);
+                    leagueManager.Form.call(me);
                 });
 
         });
 }
-teams.Form = function(){
+leagueManager.Form = function(){
     var me = this;
 
     var formContent = `<form action="#">`;
@@ -102,6 +102,6 @@ teams.Form = function(){
                     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     xhr.send(formData);
 
-                    teams.showGrid.call(me);
+                    leagueManager.showGrid.call(me);
                 });
 }

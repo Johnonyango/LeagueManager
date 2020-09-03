@@ -4,7 +4,9 @@ com/john/internship/connection/db/annotation/SaveToDb.class
 com/john/internship/connection/db/UserTest.class
 com/john/internship/model/MessageModel.class
 com/john/internship/model/Team.class
+com/john/internship/connection/db/bean/seasonsBeanI.class
 com/john/internship/model/League.class
+com/john/internship/connection/db/bean/SeasonsBean.class
 com/john/internship/connection/db/bean/TeamBeanI.class
 com/john/internship/servlets/LeagueServlet.class
 com/john/internship/servlets/HelloServlet.class

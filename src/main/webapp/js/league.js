@@ -1,5 +1,5 @@
 (function(){
-   teams.showGrid.call({
+   leagueManager.showGrid.call({
    dataUrl: 'League',
    gridStyle: 'leagueRender',
    componentId: 'league',

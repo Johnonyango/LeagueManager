@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 @SaveToDb
 public class LeagueBean implements LeagueBeanI{
@@ -20,15 +21,18 @@ public class LeagueBean implements LeagueBeanI{
         if (league == null)
             return "FAILED: No team added";
         try {
+
             PreparedStatement st = connection.prepareStatement("INSERT INTO leagues(name, country, level,) VALUES(?, ?, ?)");
             st.setString(1, league.getName()==null? null: league.getName());
             st.setString(2, league.getCountry()==null? null: league.getCountry());
             st.setInt(3, league.getLevel());
             st.executeUpdate();
 
-        }catch (SQLException e){
+        }catch (SQLException sqlEx){
+            return sqlEx.getCause().getMessage();
 
         }
+
         return "Success";
     }
 
