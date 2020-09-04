@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<%@ include file = "page/header.jsp"%>
+<%@ include file = "page/header.html"%>
 <body>
-<%@ include file = "navbar.jsp"%>
+<%@ include file = "page/navbar.jsp"%>
 <div class="container">
     <div class="d-flex justify-content-center h-100">
         <div class="card">

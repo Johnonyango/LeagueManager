@@ -1,10 +1,13 @@
 com/john/internship/connection/db/ShowUserTest.class
 com/john/internship/connection/db/bean/LeagueBean.class
+com/john/internship/model/Seasons.class
 com/john/internship/connection/db/annotation/SaveToDb.class
+com/john/internship/servlets/SeasonsServlet.class
 com/john/internship/connection/db/UserTest.class
 com/john/internship/model/MessageModel.class
+com/john/internship/connection/db/bean/SeasonsBeanI.class
 com/john/internship/model/Team.class
-com/john/internship/connection/db/bean/seasonsBeanI.class
+com/john/internship/servlets/AuthServlet.class
 com/john/internship/model/League.class
 com/john/internship/connection/db/bean/SeasonsBean.class
 com/john/internship/connection/db/bean/TeamBeanI.class

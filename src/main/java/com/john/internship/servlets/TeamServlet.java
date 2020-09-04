@@ -44,7 +44,6 @@ public class TeamServlet extends HttpServlet {
         }catch (Exception ex){
             System.out.println(ex.getCause().getMessage());
         }
-
         resp.getWriter().print(teamBean.add(dbConnection, team));
     }
 }

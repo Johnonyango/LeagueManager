@@ -10,5 +10,5 @@ public interface LeagueBeanI {
     String create(Connection connection, League league);
     List<League> show(Connection connection);
     String search(Connection connection);
-    String remove(Connection connection);
+    boolean remove(Connection connection, League league);
 }

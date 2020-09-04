@@ -1,10 +1,11 @@
 <%@ page import = "java.util.*, com.john.internship.connection.db.*"%>
 <!DOCTYPE html>
 <html lang="en">
-<%@ include file = "page/header.jsp"%>
+<%@ include file = "page/header.html"%>
 <body bgcolor="cyan">
 <%@ include file = "page/navbar.jsp"%>
 
+<%--
 <%
 List<UserTest>users;
 
@@ -44,8 +45,8 @@ session.setAttribute("users", users);
 
 
 
-%>
-
+%>  --%>
+  <!--
 <form action="#" method="POST">
       Name: <input type="text" name="name">
       Address: <input type="text" name="address">
@@ -53,8 +54,8 @@ session.setAttribute("users", users);
       Password: <input type="password" name="password">
       <input class="btn btn-success" type="submit" value="Submit">
     </form>
-
-    <div class="container">
+-->
+   <div class="container">
     <h1>Oduma League</h1>
     <table class="table table-dark">
       <thead>

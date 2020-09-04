@@ -57,7 +57,7 @@ console.log(me);
 leagueManager.Form = function(){
     var me = this;
 
-    var formContent = `<form action="#">`;
+    var formContent = `<form action="">`;
 
     me.formField.forEach(field =>{
       formContent += `<div class="row">`
@@ -97,11 +97,9 @@ leagueManager.Form = function(){
                         }
                     }
              console.log(formData);
-
                     xhr.open('post', me.dataUrl, false);
                     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     xhr.send(formData);
-
                     leagueManager.showGrid.call(me);
                 });
 }

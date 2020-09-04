@@ -1,9 +1,10 @@
-/home/john/LeagueManager/src/main/java/com/john/internship/connection/db/bean/seasonsBeanI.java
 /home/john/LeagueManager/src/main/java/com/john/internship/model/Team.java
+/home/john/LeagueManager/src/main/java/com/john/internship/connection/db/bean/SeasonsBeanI.java
 /home/john/LeagueManager/src/main/java/com/john/internship/model/League.java
 /home/john/LeagueManager/src/main/java/com/john/internship/connection/db/UserTest.java
 /home/john/LeagueManager/src/main/java/com/john/internship/connection/db/bean/TeamBeanI.java
 /home/john/LeagueManager/src/main/java/com/john/internship/connection/db/bean/SeasonsBean.java
+/home/john/LeagueManager/src/main/java/com/john/internship/servlets/SeasonsServlet.java
 /home/john/LeagueManager/src/main/java/com/john/internship/connection/db/annotation/SaveToDb.java
 /home/john/LeagueManager/src/main/java/com/john/internship/model/MessageModel.java
 /home/john/LeagueManager/src/main/java/com/john/internship/connection/db/bean/TeamBean.java
@@ -14,5 +15,6 @@
 /home/john/LeagueManager/src/main/java/com/john/internship/listeners/DbConnectionListener.java
 /home/john/LeagueManager/src/main/java/com/john/internship/servlets/HelloServlet.java
 /home/john/LeagueManager/src/main/java/com/john/internship/servlets/TeamServlet.java
+/home/john/LeagueManager/src/main/java/com/john/internship/model/Seasons.java
 /home/john/LeagueManager/src/main/java/com/john/internship/connection/db/bean/LeagueBeanI.java
 /home/john/LeagueManager/src/main/java/com/john/internship/connection/db/annotation/NotSaveToDb.java

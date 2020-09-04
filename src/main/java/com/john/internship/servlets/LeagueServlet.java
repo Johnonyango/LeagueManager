@@ -19,7 +19,8 @@ import java.sql.Connection;
 @WebServlet("/League")
 public class LeagueServlet extends HttpServlet {
 
-    @Inject @SaveToDb
+    @Inject
+    @SaveToDb
     private LeagueBeanI leagueBean;
 
     @Inject
@@ -41,11 +42,23 @@ public class LeagueServlet extends HttpServlet {
         Connection dbConnection = (Connection) scx.getAttribute("dbConnection");
 
         try {
-            BeanUtils.populate (league, req.getParameterMap());
-        }catch (Exception ex){
+            BeanUtils.populate(league, req.getParameterMap());
+        } catch (Exception ex) {
             System.out.println(ex.getCause().getMessage());
         }
         resp.getWriter().print(leagueBean.create(dbConnection, league));
     }
-}
 
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ServletContext scx = getServletContext();
+        Connection dbConnection = (Connection) scx.getAttribute("dbConnection");
+
+        try {
+            BeanUtils.populate(league, req.getParameterMap());
+        } catch (Exception ex) {
+            System.out.println(ex.getCause().getMessage());
+        }
+        resp.getWriter().print(leagueBean.remove(dbConnection, league));
+    }
+}
