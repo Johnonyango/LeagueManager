@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="login.css">
-</head>
-<body bgcolor="cyan">
-    <div class="container">
     <nav class="navbar navbar-expand-lg table table-striped">
       <a class="navbar-brand" href="#">Profile</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,12 +26,9 @@
             <a class="nav-link disabled" href="#">Blogs</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search a team" aria-label="Search" id="myInput" onkeyup="myFunction()">
+        <form class="form-inline my-2 my-lg-0" method="POST">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search a league" aria-label="Search" id="myInput" name="searchLeague">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
-    <script src="js/league.js"></script>
-  </body>
-</html>

@@ -18,15 +18,16 @@ public class TeamBean implements TeamBeanI {
         if (team == null)
             return "FAILED: No team added";
         try {
-            PreparedStatement st = connection.prepareStatement("INSERT INTO teams(Name, teamCode, numberOfGames, Points) VALUES(?, ?, ?, ?)");
+
+            PreparedStatement st = connection.prepareStatement("INSERT INTO teams(name, teamCode, numberOfGames, Points) VALUES(?, ?, ?,?)");
             st.setString(1, team.getName()==null? null: team.getName());
             st.setString(2, team.getTeamCode()==null? null: team.getTeamCode());
             st.setLong(3, team.getNumberOfGames());
             st.setLong(4, team.getPoints());
             st.executeUpdate();
 
-        }catch (SQLException e){
-
+        }catch (SQLException sqlEx){
+            sqlEx.printStackTrace();
         }
         return "Success";
     }

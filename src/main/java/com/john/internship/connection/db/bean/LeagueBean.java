@@ -60,7 +60,28 @@ public class LeagueBean implements LeagueBeanI{
     }
 
     @Override
-    public String search(Connection connection) {
+    public League search(Connection connection, String name) {
+
+        try {
+
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM leagues where name=?");
+            statement.setString(1, name);
+            statement.execute();
+            ResultSet result = statement.getResultSet();
+
+            if (result.next()) {
+                League league = new League();
+                league.setName(result.getString("name"));
+                league.setCountry(result.getString("country"));
+                league.setLevel(result.getInt("level"));
+
+                return  league;
+            }
+
+        }catch (SQLException sqlEx){
+            sqlEx.printStackTrace();
+        }
+
         return null;
     }
 

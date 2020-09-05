@@ -61,4 +61,12 @@ public class LeagueServlet extends HttpServlet {
         }
         resp.getWriter().print(leagueBean.remove(dbConnection, league));
     }
+
+    protected void doSearch(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+        ServletContext scx = getServletContext();
+        Connection dbConnection = (Connection) scx.getAttribute("dbConnection");
+        String name = req.getParameter("name");
+        resp.getWriter().print(leagueBean.search(dbConnection, name));
+    }
 }
+

@@ -1,7 +1,7 @@
 (function(){
    leagueManager.showGrid.call({
    dataUrl: 'Team',
-   gridStyle: 'teamRender',
+   gridStyle: 'customers',
    componentId: 'organization',
    gridColumns:[{
             header: 'Name',
@@ -13,8 +13,15 @@
              header: 'Games Played',
              dataIndex: 'numberOfGames'
         },{
-             header: 'Points',
-             dataIndex: 'points'
+              header: 'Games Played',
+              dataIndex: 'numberOfGames'
+           },{
+              header: 'Action',
+              dataIndex: '-1',
+              actionButtons:[
+              {text:'delete', dataIndex:'name',
+              action:function (id){alert(id)}},
+              {text:'update', dataIndex:'name', action:function (id){}}]
         }],
         gridButtons: [{
             label: 'Add Team',
@@ -22,55 +29,42 @@
             handler: 'addButton',
             id: 'team-addButton',
         },{
-            label: 'Edit Team',
+            label: 'Update League',
             cssClass: 'editButton',
             handler: 'editButton',
-            id: 'team-editButton',
+            id: 'league-editButton',
         },{
-            label: 'Delete Team',
+            label: 'Delete League',
             cssClass: 'deleteButton',
             handler: 'deleteButton',
-            id: 'team-deleteButton',
+            id: 'league-deleteButton',
         }],
         formField: [{
             label: 'Team Name',
-            name: 'Name',
+            name: 'name',
             type: 'text',
             id: 'team-name'
         },{
             label: 'Team Code',
             name: 'code',
             type: 'text',
-            id: 'teamCode'
+            id: 'code'
         },{
-             label: 'Games',
-             name: 'games-played',
+             label: 'Games Played',
+             name: 'games',
              type: 'number',
              id: 'games'
-             },{
-             label: 'Points',
-             name: 'points',
-             type: 'number',
-             id: 'points'
-             }]
+        },{
+              label: 'Points',
+              name: 'points',
+              type: 'number',
+              id: 'points'
+        }],
+             gridButtons: [{
+              label: 'Add Team',
+              cssClass: 'addButton',
+              handler: 'addButton',
+              id: 'team-addButton',
+        }]
    });
 })();
-
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}

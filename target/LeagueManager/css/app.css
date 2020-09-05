@@ -1,6 +1,7 @@
 
 body {
- background-image: url("https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+ background-image: url("images/sport.jpg");
+ background-repeat:no-repeat;
  background-color: #cccccc;
 }
 .customers {
@@ -43,29 +44,6 @@ body {
 .editButton {background-color: #008CBA;} /* Blue */
 .deleteButton {background-color: #f44336;} /* Red */
 
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #ff0000;
-}
-
-.navbar li {
-  float: left;
-}
-
-.navbar li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.navbar li a:hover {
-  background-color: #111;
-}
 
 * {
   box-sizing: border-box;

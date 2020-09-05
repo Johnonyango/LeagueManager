@@ -12,6 +12,13 @@
         },{
              header: 'Level',
              dataIndex: 'level'
+        },{
+              header: 'Action',
+              dataIndex: '-1',
+              actionButtons:[
+              {text:'delete', dataIndex:'name',
+              action:function (id){alert(id)}},
+              {text:'update', dataIndex:'name', action:function (id){}}]
         }],
         gridButtons: [{
             label: 'Add League',
@@ -46,20 +53,10 @@
              id: 'level'
              }],
              gridButtons: [{
-                         label: 'Add League',
-                         cssClass: 'addButton',
-                         handler: 'addButton',
-                         id: 'league-addButton',
-                     },{
-                         label: 'Update League',
-                         cssClass: 'editButton',
-                         handler: 'editButton',
-                         id: 'league-editButton',
-                     },{
-                         label: 'Delete League',
-                         cssClass: 'deleteButton',
-                         handler: 'deleteButton',
-                         id: 'league-deleteButton',
-                     }],
+              label: 'Add League',
+              cssClass: 'addButton',
+              handler: 'addButton',
+              id: 'league-addButton',
+             }]
    });
 })();

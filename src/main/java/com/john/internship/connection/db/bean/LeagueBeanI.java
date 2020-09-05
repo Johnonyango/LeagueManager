@@ -9,6 +9,6 @@ import java.util.List;
 public interface LeagueBeanI {
     String create(Connection connection, League league);
     List<League> show(Connection connection);
-    String search(Connection connection);
+    League search(Connection connection, String name);
     boolean remove(Connection connection, League league);
 }

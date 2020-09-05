@@ -36,7 +36,15 @@ console.log(me);
         tableContent += `<tr>`;
 
         me.gridColumns.forEach(col => {
+        if(col.dataIndex=='-1'){
+          tableContent += `<td>`;
+          col.actionButtons.forEach(btn=>{
+          tableContent+= `<button onclick=${btn.action.bind(row[btn.dataIndex])}>${btn.text}</button>`
+          });
+          tableContent +=`</td>`;
+        }else{
             tableContent += `<td>${row[col.dataIndex]}</td>`;
+            }
         });
 
         tableContent += `</tr>`;
