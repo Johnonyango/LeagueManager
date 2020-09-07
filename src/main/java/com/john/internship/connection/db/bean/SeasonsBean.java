@@ -1,12 +1,8 @@
 package com.john.internship.connection.db.bean;
 
 import com.john.internship.model.Seasons;
-import com.john.internship.model.Team;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +10,24 @@ public class SeasonsBean implements SeasonsBeanI{
     @Override
 
     public String start(Connection connection, Seasons seasons) {
-        return null;
+        if (connection == null)
+            return "FAILED: No Connection";
+
+        if (seasons == null)
+            return "FAILED: No team added";
+        try {
+
+            PreparedStatement st = connection.prepareStatement("INSERT INTO seasons(from_date, to_date, status) VALUES(?, ?, ?)");
+            st.setDate(1, (Date) seasons.getFromYear());
+            st.setDate(2, (Date) seasons.getToYear());
+            st.setString(3, seasons.getId());
+            st.setString(4, seasons.getStatus());
+            st.executeUpdate();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return "Success";
     }
 
     @Override

@@ -13,8 +13,8 @@ import java.sql.SQLException;
 
 @WebServlet("/Auth")
 public class AuthServlet extends HttpServlet {
-    ServletContext scx = getServletContext();
-    Connection dbConnection = (Connection) scx.getAttribute("dbConnection");
+    ServletContext scx;
+    Connection dbConnection;
     @Override
     public void init() {
         ServletContext scx = getServletContext();
@@ -27,10 +27,10 @@ public class AuthServlet extends HttpServlet {
         String password = req.getParameter("pwd");
         System.out.println(username);
         if (doLogin(username,password)){
-            resp.sendRedirect("home.jsp");
+            resp.sendRedirect("admin.jsp");
 //            resp.getWriter().println("Login successful " + username);
         }else
-            resp.getWriter().println("Invalid credentials" +username+password);
+            resp.sendRedirect("login.jsp");
     }
     public boolean doLogin(String username, String password){
         try {
