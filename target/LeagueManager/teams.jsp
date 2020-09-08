@@ -8,6 +8,8 @@
 
 <html>
 <body>
+  <%@ include file = "header.html"%>
+
 <div class="site-wrap">
     <div class="site-section bg-dark">
         <div class="container">

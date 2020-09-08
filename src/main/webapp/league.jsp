@@ -2,13 +2,14 @@
 <%@ page import = "java.util.*"%>
 <%@ page import = "com.john.internship.model.League"%>
 <%@ page import = "com.john.internship.connection.db.bean.LeagueBean"%>
-<%@ page import = "java.sql.Connection"%>
 <!DOCTYPE html>
 <html lang="en">
 <%@ include file = "header.jsp"%>
 
 <html>
 <body>
+  <%@ include file = "header.html"%>
+
 <div class="site-wrap">
     <div class="site-section bg-dark">
         <div class="container">
@@ -19,8 +20,7 @@
 
         <div class="widget-next-match">
           <%
-          Connection dbConnection = (Connection) getServletContext().getAttribute("dbConnection");
-          List<League> leagues = new LeagueBean().show(dbConnection);
+          List<League> leagues = new LeagueBean().show();
 
           %>
           <table class="table custom-table">

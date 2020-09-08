@@ -6,6 +6,7 @@ import com.john.internship.connection.db.bean.LeagueBeanI;
 import com.john.internship.model.League;
 import org.apache.commons.beanutils.BeanUtils;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -19,8 +20,7 @@ import java.sql.Connection;
 @WebServlet("/League")
 public class LeagueServlet extends HttpServlet {
 
-    @Inject
-    @SaveToDb
+    @EJB
     private LeagueBeanI leagueBean;
 
     @Inject
@@ -28,26 +28,22 @@ public class LeagueServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletContext scx = getServletContext();
-        Connection dbConnection = (Connection) scx.getAttribute("dbConnection");
-        resp.setContentType("text/plain");
-
         ObjectMapper mapper = new ObjectMapper();
-        resp.getWriter().print(mapper.writeValueAsString(leagueBean.show(dbConnection)));
+        resp.getWriter().print(mapper.writeValueAsString(leagueBean.show()));
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletContext scx = getServletContext();
-        Connection dbConnection = (Connection) scx.getAttribute("dbConnection");
-
         try {
             BeanUtils.populate(league, req.getParameterMap());
-        } catch (Exception ex) {
+        }catch (Exception ex){
             System.out.println(ex.getCause().getMessage());
         }
-        resp.getWriter().print(leagueBean.create(dbConnection, league));
+
+        resp.getWriter().print(leagueBean.create(league));
+
     }
+
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

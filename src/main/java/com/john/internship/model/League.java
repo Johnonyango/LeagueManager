@@ -1,9 +1,32 @@
 package com.john.internship.model;
 
-public class League {
+import javax.persistence.*;
+import javax.persistence.Table;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "league_table")
+public class League implements Serializable {
+
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column
     private String name;
+
+    @Column
     private String country;
+
+    @Column
     private int level;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

@@ -34,10 +34,28 @@ function addLeague(){
 
     leagueManager.dbQuery.call({
         'formData':params,
-        'dataUrl':'../League',
+        'dataUrl':'../Table',
         callback:function(data){
             alert(data);
         }
     });
+}
 
+function addTable(){
+    var name, code, games, points;
+    name =document.getElementById('team-name').value;
+    code =document.getElementById('code').value;
+    games =document.getElementById('games').value;
+    points =document.getElementById('points').value;
+
+    var params ='name='+name+'&code='+code+'&games='+games+'&points='+points;
+    console.log(params);
+
+    leagueManager.dbQuery.call({
+        'formData':params,
+        'dataUrl':'../Teams',
+        callback:function(data){
+            alert(data);
+        }
+    });
 }

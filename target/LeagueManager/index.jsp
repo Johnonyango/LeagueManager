@@ -8,6 +8,7 @@
   <%@ include file = "header.jsp"%>
 
 <body>
+  <!-- sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill -->
 
   <div class="site-wrap">
 
@@ -28,7 +29,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-5 ml-auto">
-            <h1 class="text-white">Bryte Sports</h1>
+            <h1 class="text-white">Soccer Mama Yao</h1>
             <p>We nurture talents. We nurture soccer. Checkout out for open seasons to sign up in a league</p>
             <div id="date-countdown"></div>
             <p>
