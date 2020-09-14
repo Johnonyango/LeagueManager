@@ -47,7 +47,7 @@ public class Seasons extends BaseEntity{
         this.toYear = toYear;
     }
 
-    public Status getStatus() {
+    public Status getByName() {
         return status;
     }
 
