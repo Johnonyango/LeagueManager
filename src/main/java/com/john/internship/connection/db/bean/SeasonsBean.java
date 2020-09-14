@@ -2,56 +2,36 @@ package com.john.internship.connection.db.bean;
 
 import com.john.internship.model.Seasons;
 
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Stateless
+@Remote
 public class SeasonsBean implements SeasonsBeanI{
+
+    @PersistenceContext
+    private EntityManager em;
+
     @Override
-
-    public String start(Connection connection, Seasons seasons) {
-        if (connection == null)
-            return "FAILED: No Connection";
-
-        if (seasons == null)
-            return "FAILED: No team added";
-        try {
-
-            PreparedStatement st = connection.prepareStatement("INSERT INTO seasons(from_date, to_date, status) VALUES(?, ?, ?)");
-            st.setDate(1, (Date) seasons.getFromYear());
-            st.setDate(2, (Date) seasons.getToYear());
-            st.setString(3, seasons.getId());
-            st.setString(4, seasons.getStatus());
-            st.executeUpdate();
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+    public String start(Seasons seasons)  throws Exception {
+        if (seasons==null || seasons.getFromYear()==null)
+            throw new Exception("No valid table name provided");
+        em.merge(seasons);
         return "Success";
     }
 
     @Override
-    public List<Seasons> show(Connection connection) {
-        List<Seasons>seasons = new ArrayList<>();
+    public List<Seasons> show() {
+        return em.createQuery("From Seasons s").getResultList();
+    }
 
-        try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM seasons");
-            statement.execute();
-            ResultSet result = statement.getResultSet();
-
-            while (result.next()) {
-                Seasons season = new Seasons();
-                season.setFromYear(result.getDate("from_date"));
-                season.setToYear(result.getDate("to_date"));
-                season.setStatus(result.getString("status"));
-
-                seasons.add(season);
-            }
-
-        }catch (SQLException sqlEx){
-            sqlEx.printStackTrace();
-        }
-
-        return seasons;
+    @Override
+    public String drop(int seasonId) throws Exception {
+        return null;
     }
 }

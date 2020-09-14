@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%@ include file = "page/header.jsp"%>
 <body>
-<%@ include file = "navbar.jsp"%>
 <div class="container">
     <form>
       <div class="form-row">

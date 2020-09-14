@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.util.List;
 
 public interface SeasonsBeanI {
-    String start(Connection connection, Seasons seasons);
-    List<Seasons> show(Connection connection);
+    String start(Seasons seasons) throws Exception;
+    List<Seasons> show();
+    String drop(int seasonId) throws Exception;
+
 }

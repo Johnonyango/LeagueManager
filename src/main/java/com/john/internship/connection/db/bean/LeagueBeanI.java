@@ -7,8 +7,8 @@ import java.sql.Connection;
 import java.util.List;
 
 public interface LeagueBeanI {
-    String create(League league);
-    List<League> show();
-    League search(Connection connection, String name);
-    boolean remove(Connection connection, League league);
+    String create(League league) throws Exception;
+    List<League> show() throws Exception;
+    public League search(int leagueId) throws Exception;
+    public String remove(int leagueId) throws Exception;
 }

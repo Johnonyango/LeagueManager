@@ -1,22 +1,34 @@
 package com.john.internship.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class LeagueTable {
-    private long id;
+@Entity
+@Table(name = "league_table")
+public class LeagueTable extends BaseEntity{
+
+
+    @Column
     private String teamCode;
+
+    @Column
     private String name;
+
+    @Column
     private long numberOfGames;
+
+    @Column
     private long points;
-    private List opponents;
 
-    public long getId() {
-        return id;
-    }
+//    @OneToOne(mappedBy = "leagueTable", cascade = CascadeType.ALL)
+//    List<League>leagues = new ArrayList<>();
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @Transient
+    private String action;
 
     public String getTeamCode() {
         return teamCode;
@@ -50,15 +62,26 @@ public class LeagueTable {
         this.points = points;
     }
 
-    public List getOpponents() {
-        return opponents;
+//    @JsonIgnore
+//    public List<League> getLeagues() {
+//        return leagues;
+//    }
+
+//    public void setLeagues(List<League> leagues) {
+//        this.leagues = leagues;
+//    }
+
+    @JsonIgnore
+    public String getAction() {
+        return action;
     }
 
-    public void setOpponents(List opponents) {
-        this.opponents = opponents;
+    public void setAction(String action) {
+        this.action = action;
     }
 
-    public String toStringRow(){
-        return "[id: " + this.getId() + ", name: " + this.getName() + ", teamCode: " + this.getTeamCode() + ", numberOfTeams: " + this.getNumberOfGames() + ", Points: " + this.getPoints() + ", Opponents:" +this.getOpponents() + "]";
-    }
+//    public void addLeague(League league){
+//        league.setLeagueTable(this);
+//        this.leagues.add(league);
+//    }
 }
