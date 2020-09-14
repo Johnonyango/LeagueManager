@@ -32,6 +32,11 @@ public class TeamsBean implements TeamsBeanI {
     }
 
     @Override
+    public Teams load(int teamId) throws Exception {
+        return em.find(Teams.class, teamId);
+    }
+
+    @Override
     public League search(int teamId) throws Exception {
 //        if (leagueId == 0)
 //        return leagueId

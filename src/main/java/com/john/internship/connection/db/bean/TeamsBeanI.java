@@ -8,6 +8,7 @@ import java.util.List;
 public interface TeamsBeanI {
     String add(Teams teams) throws Exception;
     List<Teams> show() throws Exception;
+    public Teams load(int teamId) throws Exception;
     public League search(int teamId) throws Exception;
     String remove(int teamId) throws Exception;
 }

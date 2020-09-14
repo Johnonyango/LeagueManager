@@ -27,6 +27,10 @@ public class LeagueBean implements LeagueBeanI{
     }
 
     @Override
+    public League load(int leagueId) throws Exception{
+        return em.find(League.class, leagueId);
+    }
+    @Override
     public League search(int leagueId) throws Exception {
 //        if (leagueId == 0)
 //        return leagueId

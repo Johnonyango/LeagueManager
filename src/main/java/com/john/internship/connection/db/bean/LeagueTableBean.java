@@ -1,5 +1,6 @@
 package com.john.internship.connection.db.bean;
 
+import com.john.internship.model.League;
 import com.john.internship.model.LeagueTable;
 
 import javax.ejb.Remote;
@@ -30,6 +31,10 @@ public class LeagueTableBean implements LeagueTableBeanI {
         return em.createQuery("From LeagueTable leagueTable").getResultList();
     }
 
+    @Override
+    public League load(int tableId) throws Exception{
+        return em.find(League.class, tableId);
+    }
 
     @Override
     public String search(Connection connection) {

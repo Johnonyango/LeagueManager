@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.john.internship.connection.db.bean.TeamsBeanI;
 import com.john.internship.model.Teams;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.ejb.EJB;
 import javax.inject.Inject;
@@ -26,13 +27,17 @@ public class TeamsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/plain");
-
         ObjectMapper mapper = new ObjectMapper();
+
         try {
-            resp.getWriter().print(mapper.writeValueAsString(teamsBean.show()));
+            if (teams != null && StringUtils.isNotBlank(teams.getAction())
+                    && teams.getAction().equalsIgnoreCase("load") && teams.getId() != 0) {
+                resp.getWriter().print(mapper.writeValueAsString(teamsBean.load(teams.getId())));
+
+            } else
+                resp.getWriter().print(mapper.writeValueAsString(teamsBean.show()));
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getCause();
         }
     }
 

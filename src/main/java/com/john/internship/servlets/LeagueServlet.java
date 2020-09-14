@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.john.internship.connection.db.bean.LeagueBeanI;
 import com.john.internship.model.League;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.ejb.EJB;
 import javax.inject.Inject;
@@ -26,10 +27,16 @@ public class LeagueServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ObjectMapper mapper = new ObjectMapper();
+
         try {
-            resp.getWriter().print(mapper.writeValueAsString(leagueBean.show()));
+            if (league != null && StringUtils.isNotBlank(league.getAction())
+                    && league.getAction().equalsIgnoreCase("load") && league.getId() != 0) {
+                resp.getWriter().print(mapper.writeValueAsString(leagueBean.load(league.getId())));
+
+            } else
+                resp.getWriter().print(mapper.writeValueAsString(leagueBean.show()));
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getCause();
         }
     }
 

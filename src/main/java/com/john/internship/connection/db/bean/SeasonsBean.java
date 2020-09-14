@@ -1,5 +1,6 @@
 package com.john.internship.connection.db.bean;
 
+import com.john.internship.model.League;
 import com.john.internship.model.Seasons;
 
 import javax.ejb.Remote;
@@ -28,6 +29,11 @@ public class SeasonsBean implements SeasonsBeanI{
     @Override
     public List<Seasons> show() {
         return em.createQuery("From Seasons s").getResultList();
+    }
+
+    @Override
+    public Seasons load(int seasonId) throws Exception{
+        return em.find(Seasons.class, seasonId);
     }
 
     @Override

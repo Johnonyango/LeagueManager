@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.john.internship.connection.db.bean.LeagueTableBeanI;
 import com.john.internship.model.LeagueTable;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.ejb.EJB;
 import javax.inject.Inject;
@@ -22,25 +23,33 @@ public class LeagueTableServlet extends HttpServlet {
     private LeagueTableBeanI leagueTableBean;
 
     @Inject
-    private LeagueTable league;
+    private LeagueTable table;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/plain");
-
         ObjectMapper mapper = new ObjectMapper();
-        resp.getWriter().print(mapper.writeValueAsString(leagueTableBean.show()));
+
+        try {
+            if (table != null && StringUtils.isNotBlank(table.getAction())
+                    && table.getAction().equalsIgnoreCase("load") && table.getId() != 0) {
+                resp.getWriter().print(mapper.writeValueAsString(leagueTableBean.load(table.getId())));
+
+            } else
+                resp.getWriter().print(mapper.writeValueAsString(leagueTableBean.show()));
+        } catch (Exception e) {
+            e.getCause();
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            BeanUtils.populate (league, req.getParameterMap());
+            BeanUtils.populate (table, req.getParameterMap());
         }catch (Exception ex){
             System.out.println(ex.getCause().getMessage());
         }
         try {
-            resp.getWriter().print(leagueTableBean.add(league));
+            resp.getWriter().print(leagueTableBean.add(table));
         } catch (Exception e) {
             e.printStackTrace();
         }

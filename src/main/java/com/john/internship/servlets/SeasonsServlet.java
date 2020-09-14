@@ -5,6 +5,7 @@ import com.john.internship.connection.db.annotation.SaveToDb;
 import com.john.internship.connection.db.bean.SeasonsBeanI;
 import com.john.internship.model.Seasons;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.ejb.EJB;
 import javax.inject.Inject;
@@ -28,9 +29,18 @@ public class SeasonsServlet extends HttpServlet {
     private Seasons seasons;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/plain");
         ObjectMapper mapper = new ObjectMapper();
-        resp.getWriter().print(mapper.writeValueAsString(seasonsBean.show()));    }
+        try {
+            if (seasons != null && StringUtils.isNotBlank(seasons.getAction())
+                    && seasons.getAction().equalsIgnoreCase("load") && seasons.getId() != 0) {
+                resp.getWriter().print(mapper.writeValueAsString(seasonsBean.load(seasons.getId())));
+
+            } else
+                resp.getWriter().print(mapper.writeValueAsString(seasonsBean.show()));
+        } catch (Exception e) {
+            e.getCause();
+        }
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
