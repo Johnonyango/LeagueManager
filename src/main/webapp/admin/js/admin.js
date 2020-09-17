@@ -11,7 +11,7 @@ leagueManager.dbQuery = function(){
             xhr.onreadystatechange = function(){
                 if (xhr.readyState == XMLHttpRequest.DONE){
                     if (xhr.status == 200){
-                        // requestResponse = eval('(' + xhr.responseText + ')');
+                        //requestResponse = eval('(' + xhr.responseText + ')');
                         me.callback(xhr.responseText);
 
                     }

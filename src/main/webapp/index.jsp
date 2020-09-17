@@ -1,8 +1,4 @@
-<%@ page import = "java.util.*"%>
-<%@ page import = "com.john.internship.model.LeagueTable"%>
-<%@ page import = "com.john.internship.connection.db.bean.LeagueBean"%>
-<%@ page import = "com.john.internship.connection.db.bean.LeagueTableBean"%>
-<%@ page import = "java.sql.Connection"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <%@ include file = "header.jsp"%>
@@ -31,11 +27,11 @@
           <div class="col-lg-5 ml-auto">
             <h1 class="text-white">Soccer Mama Yao</h1>
             <p>We nurture talents. We nurture soccer. Checkout out for open seasons to sign up in a league</p>
-            <div id="date-countdown"></div>
+            <!--<div id="date-countdown"></div>
             <p>
               <a href="#" class="btn btn-primary py-3 px-4 mr-3">Book Ticket</a>
               <a href="#" class="more light">Learn More</a>
-            </p>
+            </p>-->
           </div>
         </div>
       </div>
@@ -43,7 +39,7 @@
 
 
 
-    <div class="container">
+   <!-- <div class="container">
 
 
       <div class="row">
@@ -78,7 +74,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
     <div class="site-section bg-dark">
@@ -90,11 +86,7 @@
           <div class="col-lg-10">
 
             <div class="widget-next-match">
-              <%
-              Connection dbConnection = (Connection) getServletContext().getAttribute("dbConnection");
-              List<LeagueTable> teams = new LeagueTableBean().show(dbConnection);
-
-              %>
+              <h1 style="text-align: center;">Top League</h1>
               <table class="table custom-table">
                 <thead>
                   <tr>
@@ -104,23 +96,8 @@
                     <th>Points</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <%
-                  if(teams != null){
-                    int P = 1;
-                    for(LeagueTable leagueTable:teams){
-                  %>
-                  <tr>
-                    <td><%=P%></td>
-                    <td><strong class="text-white"><%=leagueTable.getName()%></strong></td>
-                    <td><%=leagueTable.getNumberOfGames()%></td>
-                    <td><%=leagueTable.getPoints()%></td>
-                  </tr>
-                  <%
-                  P++;
-                }
-              }
-                  %>
+                <tbody id="table">
+
                 </tbody>
               </table>
             </div>
@@ -198,9 +175,7 @@
                 Copyright &copy;
                 <script>
                   document.write(new Date().getFullYear());
-                </script> All rights reserved | This template is made with <i class="icon-heart"
-                  aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </script> All rights reserved. By <a href="index.jsp" target="_blank">Bryte League Sports</a>
               </p>
             </div>
           </div>
@@ -214,23 +189,29 @@
   </div>
   <!-- .site-wrap -->
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/bootstrap-datepicker.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.fancybox.min.js"></script>
-  <script src="js/jquery.sticky.js"></script>
-  <script src="js/jquery.mb.YTPlayer.min.js"></script>
+   <%@ include file = "sitewrap.jsp"%>
+
 
 
   <script src="js/main.js"></script>
+    <script>
+    $.getJSON('Table', function(data){
+      var content = '';
+      for(var i = 0; i<data.length; i++){
+        var leagueTable = data[i];
+        content+=`<tr>
+                    <td>${i+1}</td>
+                    <td><strong class="text-white">${leagueTable.name}</strong></td>
+                    <td>${leagueTable.numberOfGames}</td>
+                    <td>${leagueTable.points}</td>
+                  </tr>`;
+      }
+      $('#table').html(content);
+    });
+    
+    </script>
+
+
 
 </body>
 

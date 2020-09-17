@@ -20,9 +20,9 @@ public class Seasons extends BaseEntity{
     @Column
     private Date toYear;
 
-    @Column
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    //@Column
+    //@Enumerated(EnumType.STRING)
+   // private Status status;
 
     @Transient
     private String action;
@@ -47,13 +47,13 @@ public class Seasons extends BaseEntity{
         this.toYear = toYear;
     }
 
-    public Status getByName() {
-        return status;
-    }
+   // public Status getName() {
+       // return status;
+    //}
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
+   // public void setStatus(Status status) {
+        //this.status = status;
+    //}
 
     public String getAction() {
         return action;
@@ -69,7 +69,7 @@ public class Seasons extends BaseEntity{
     }
 
     public void setLeagues(List<League> leagues) {
-        this.leagues = leagues;
+       this.leagues = leagues;
     }
 
         public void addLeague(League league){

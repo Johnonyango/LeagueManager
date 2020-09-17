@@ -23,16 +23,16 @@ public class League extends BaseEntity{
     private int level;
 
     @ManyToOne
-    private Seasons seasons;
+   private Seasons seasons;
 
     @OneToMany(mappedBy = "league", cascade = CascadeType.ALL)
     private List<Teams>teams = new ArrayList<>();
 
-    @Formula("(select s.name from seasons s where s.id=season_id)") //Pending query
+    @Formula("(select s.name from seasons s where s.id=id)") //Pending query
     private String leagueName;
 
     @Formula("coalesce(season_id,0)") //Pending subQuery
-    private int leagueId;
+    private int seasonId;
 
     @Transient
     private String action;
@@ -63,11 +63,11 @@ public class League extends BaseEntity{
     }
 
     public Seasons getSeasons() {
-        return seasons;
+       return seasons;
     }
 
     public void setSeasons(Seasons seasons) {
-        this.seasons = seasons;
+       this.seasons = seasons;
     }
 
     @JsonIgnore
@@ -89,11 +89,11 @@ public class League extends BaseEntity{
     }
 
     public int getLeagueId() {
-        return leagueId;
+        return seasonId;
     }
 
     public void setLeagueId(int leagueId) {
-        this.leagueId = leagueId;
+        this.seasonId = leagueId;
     }
 
     public void addTeam(Teams team){

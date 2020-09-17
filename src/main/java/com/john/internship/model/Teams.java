@@ -4,8 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.List;
+
 
 @Entity
 @Table(name = "teams_table")

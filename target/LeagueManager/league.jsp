@@ -1,7 +1,4 @@
 
-<%@ page import = "java.util.*"%>
-<%@ page import = "com.john.internship.model.League"%>
-<%@ page import = "com.john.internship.connection.db.bean.LeagueBean"%>
 <!DOCTYPE html>
 <html lang="en">
 <%@ include file = "header.jsp"%>
@@ -19,10 +16,7 @@
     <div class="col-lg-10">
 
         <div class="widget-next-match">
-          <%
-          List<League> leagues = new LeagueBean().show();
 
-          %>
           <table class="table custom-table">
             <thead>
               <tr>
@@ -31,20 +25,8 @@
                 <th>Level</th>
               </tr>
             </thead>
-            <tbody>
-              <%
-              if(leagues != null){
-                for(League league:leagues){
-              %>
-              <tr>
-                <td><strong class="text-white"><%=league.getName()%></strong></td>
-                <td><%=league.getCountry()%></td>
-                <td><%=league.getLevel()%></td>
-              </tr>
-              <%
-            }
-          }
-              %>
+            <tbody id="league">
+
             </tbody>
           </table>
         </div>
@@ -56,6 +38,23 @@
 </div>
 </div> <!-- .site-section -->
 </div>
+<%@ include file = "sitewrap.jsp"%>
+
 <!-- <script src="js/league.js"></script> -->
+<script>
+    $.getJSON('League', function(data){
+      var content = '';
+      for(var i = 0; i<data.length; i++){
+        var leagueTable = data[i];
+        content+=`<tr>
+                    <td>${i+1}</td>
+                    <td><strong class="text-white">${leagueTable.name}</strong></td>
+                    <td>${leagueTable.numberOfGames}</td>
+                    <td>${leagueTable.points}</td>
+                  </tr>`;
+      }
+      $('#league').html(content);
+    });
+</script>
 </body>
 </html>

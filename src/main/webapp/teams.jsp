@@ -1,7 +1,4 @@
-<%@ page import = "java.util.*"%>
-<%@ page import = "com.john.internship.model.Teams"%>
-<%@ page import = "com.john.internship.connection.db.bean.TeamsBean"%>
-<%@ page import = "java.sql.Connection"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <%@ include file = "header.jsp"%>
@@ -19,31 +16,17 @@
     <div class="col-lg-10">
 
         <div class="widget-next-match">
-          <%
-          Connection dbConnection = (Connection) getServletContext().getAttribute("dbConnection");
-          List<Teams> teams = new TeamsBean().show(dbConnection);
 
-          %>
           <table class="table custom-table">
             <thead>
               <tr>
-                <th>Team Name</th>
-                <th>Team Code</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>League</th>
               </tr>
             </thead>
-            <tbody>
-              <%
-              if(teams != null){
-                for(Teams team:teams){
-              %>
-              <tr>
-                <td><strong class="text-white"><%=team.getName()%></strong></td>
-                <td><%=team.getCode()%></td>
-              </tr>
-              <%
-            }
-          }
-              %>
+            <tbody id="team">
+
             </tbody>
           </table>
         </div>
@@ -55,6 +38,22 @@
 </div>
 </div> <!-- .site-section -->
 </div>
+<%@ include file = "sitewrap.jsp"%>
+
 <!-- <script src="js/league.js"></script> -->
+<script>
+    $.getJSON('Teams', function(data){
+      var content = '';
+      for(var i = 0; i<data.length; i++){
+        var teamsTable = data[i];
+        content+=`<tr>
+                    <td><strong class="text-white">${teamsTable.name}</strong></td>
+                    <td>${teamsTable.code}</td>
+                    <td>${teamsTable.leagueName}</td>
+                  </tr>`;
+      }
+      $('#team').html(content);
+    });
+</script>
 </body>
 </html>
