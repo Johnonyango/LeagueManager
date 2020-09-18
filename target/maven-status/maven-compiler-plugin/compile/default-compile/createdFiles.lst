@@ -2,7 +2,6 @@ com/john/internship/connection/db/bean/LeagueBean.class
 com/john/internship/servlets/TeamsServlet.class
 com/john/internship/connection/db/bean/SeasonsBeanI.class
 com/john/internship/connection/db/bean/SeasonsBean.class
-com/john/internship/Ws/soap/TeamsSoapApi.class
 com/john/internship/model/Outcome.class
 com/john/internship/servlets/LeagueTableServlet.class
 com/john/internship/model/inheritance2/FreshJuice.class

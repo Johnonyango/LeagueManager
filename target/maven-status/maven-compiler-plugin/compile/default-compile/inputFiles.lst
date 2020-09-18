@@ -15,7 +15,6 @@
 /home/john/LeagueManager/src/main/java/com/john/internship/servlets/LeagueTableServlet.java
 /home/john/LeagueManager/src/main/java/com/john/internship/model/inheritance2/Car.java
 /home/john/LeagueManager/src/main/java/com/john/internship/servlets/TeamsServlet.java
-/home/john/LeagueManager/src/main/java/com/john/internship/Ws/soap/TeamsSoapApi.java
 /home/john/LeagueManager/src/main/java/com/john/internship/connection/db/annotation/NotSaveToDb.java
 /home/john/LeagueManager/src/main/java/com/john/internship/connection/db/bean/Inheritance2Test.java
 /home/john/LeagueManager/src/main/java/com/john/internship/model/inheritance2/FreshJuice.java
