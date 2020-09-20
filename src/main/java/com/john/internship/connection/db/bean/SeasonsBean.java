@@ -20,7 +20,7 @@ public class SeasonsBean implements SeasonsBeanI{
 
     @Override
     public String start(Seasons seasons)  throws Exception {
-        if (seasons==null || seasons.getFromYear()==null)
+        if (seasons==null || seasons.getFromYear()==null || seasons.getToYear()==null)
             throw new Exception("No valid table name provided");
         em.merge(seasons);
         return "Success";
@@ -28,7 +28,7 @@ public class SeasonsBean implements SeasonsBeanI{
 
     @Override
     public List<Seasons> show() {
-        return em.createQuery("From Seasons s").getResultList();
+        return em.createQuery("FROM Seasons season").getResultList();
     }
 
     @Override
@@ -38,6 +38,18 @@ public class SeasonsBean implements SeasonsBeanI{
 
     @Override
     public String drop(int seasonId) throws Exception {
-        return null;
+        try {
+            if (seasonId == 0)
+                return "invalid Id";
+
+            Seasons season = em.find(Seasons.class, seasonId);
+            if (season != null){
+                em.remove(em.merge(season));
+            }
+            return "successfully deleted";
+        } catch (Exception e) {
+            System.out.println(e.getCause());
+        }
+        return "Operation failed";
     }
 }

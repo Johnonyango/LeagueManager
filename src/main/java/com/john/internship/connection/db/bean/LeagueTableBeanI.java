@@ -12,5 +12,5 @@ public interface LeagueTableBeanI {
     public League load(int tableId) throws Exception;
     String search(Connection connection);
     String update(Connection connection, LeagueTable league );
-    String remove(Connection connection);
+    String remove(int tableId) throws Exception;
 }

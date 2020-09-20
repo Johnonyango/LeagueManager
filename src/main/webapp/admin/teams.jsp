@@ -2,6 +2,7 @@
 <html lang="en">
   <%@ include file = "includes/header.jsp"%>
 
+
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
   <!-- Navbar -->

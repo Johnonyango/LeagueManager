@@ -5,7 +5,7 @@ import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 import javax.persistence.Table;
-import java.io.Serializable;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,10 +28,10 @@ public class League extends BaseEntity{
     @OneToMany(mappedBy = "league", cascade = CascadeType.ALL)
     private List<Teams>teams = new ArrayList<>();
 
-    @Formula("(select s.name from seasons s where s.id=id)") //Pending query
+   // @Formula("(select s.name from seasons s where s.id=id)") //Pending query
     private String leagueName;
 
-    @Formula("coalesce(season_id,0)") //Pending subQuery
+   // @Formula("coalesce(season_id,0)") //Pending subQuery
     private int seasonId;
 
     @Transient
@@ -70,6 +70,7 @@ public class League extends BaseEntity{
        this.seasons = seasons;
     }
 
+    @XmlTransient
     @JsonIgnore
     public List<Teams> getTeams() {
         return teams;

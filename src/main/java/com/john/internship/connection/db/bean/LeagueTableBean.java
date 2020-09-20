@@ -47,7 +47,19 @@ public class LeagueTableBean implements LeagueTableBeanI {
     }
 
     @Override
-    public String remove(Connection connection) {
-        return null;
+    public String remove(int tableId) throws Exception {
+        try {
+            if (tableId == 0)
+                return "invalid Id";
+
+            LeagueTable table = em.find(LeagueTable.class, tableId);
+            if (table != null){
+                em.remove(em.merge(table));
+            }
+            return "successfully deleted";
+        } catch (Exception e) {
+            System.out.println(e.getCause());
+        }
+        return "Opertation failed";
     }
 }

@@ -23,7 +23,9 @@
                 <th>Name</th>
                 <th>Code</th>
                 <th>League</th>
+                <th>Action</th>
               </tr>
+
             </thead>
             <tbody id="team">
 
@@ -50,6 +52,7 @@
                     <td><strong class="text-white">${teamsTable.name}</strong></td>
                     <td>${teamsTable.code}</td>
                     <td>${teamsTable.leagueName}</td>
+                     <td>${teamsTable.action}</td>
                   </tr>`;
       }
       $('#team').html(content);

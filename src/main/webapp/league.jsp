@@ -23,6 +23,7 @@
                 <th>Name</th>
                 <th>Country</th>
                 <th>Level</th>
+                 <th>Action</th>
               </tr>
             </thead>
             <tbody id="league">
@@ -51,6 +52,7 @@
                     <td><strong class="text-white">${leagueTable.name}</strong></td>
                     <td>${leagueTable.numberOfGames}</td>
                     <td>${leagueTable.points}</td>
+                    <td>${leagueTable.action}</td>
                   </tr>`;
       }
       $('#league').html(content);

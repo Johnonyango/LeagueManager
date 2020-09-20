@@ -23,6 +23,7 @@
                 <th>ID</th>
                 <th>From</th>
                 <th>To</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody id="seasons">
@@ -50,6 +51,7 @@
                     <td><strong class="text-white">${seasons.id}</strong></td>
                     <td>${seasons.fromYear}</td>
                     <td>${seasons.toYear}</td>
+                    <td>${leagueTable.action}</td>
                   </tr>`;
       }
       $('#seasons').html(content);

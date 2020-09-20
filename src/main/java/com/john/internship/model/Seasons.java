@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -63,6 +64,7 @@ public class Seasons extends BaseEntity{
         this.action = action;
     }
 
+    @XmlTransient
     @JsonIgnore
     public List<League> getLeagues() {
         return leagues;

@@ -28,7 +28,7 @@ public class TeamsBean implements TeamsBeanI {
 
     @Override
     public List<Teams> show() {
-        return em.createQuery("From Teams teams").getResultList();
+        return em.createQuery("FROM Teams team").getResultList();
     }
 
     @Override
@@ -44,14 +44,20 @@ public class TeamsBean implements TeamsBeanI {
     }
 
     @Override
-    public String remove(int teamId) throws Exception{
-        if (teamId == 0)
-            throw new Exception("Invalid faculty details!!");
+    public String remove(int teamId) throws Exception {
+        try {
+            if (teamId == 0)
+                return "invalid Id";
 
-        System.out.println("team id>>>>> " + teamId);
-        em.remove(em.find(Teams.class, teamId));
-
-        return "OK";
+            Teams team = em.find(Teams.class, teamId);
+            if (team != null){
+                em.remove(em.merge(team));
+            }
+            return "successfully deleted";
+        } catch (Exception e) {
+            System.out.println(e.getCause());
+        }
+        return "Opertation failed";
     }
 }
 
