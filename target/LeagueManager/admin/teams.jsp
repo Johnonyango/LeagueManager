@@ -21,13 +21,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard v2</h1>
+         <!--   <h1 class="m-0 text-dark">Dashboard v2</h1> -->
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
+           <!-- <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Dashboard v2</li>
-            </ol>
+            </ol> -->
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -35,64 +35,32 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
+
     <section class="content">
-      <div class="container-fluid">
-        <!-- Info boxes -->
-        <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-6">
-            <div class="card card-primary">
-                <div class="card-header">
-                  <h3 class="card-title">Add Team</h3>
-                </div>
-                <!-- /.card-header -->
-                <!-- form start -->
-                <form onsubmit="return false">
-                  <div class="card-body">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Team Code</label>
-                      <input type="text" class="form-control" id="code" placeholder="Team Code">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Name</label>
-                      <input type="text" class="form-control" id="name" placeholder="Team Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">League</label>
-                        <input type="number" class="form-control" id="league_name" placeholder="League">
-                      </div>
-                   
-                  </div>
-                  <!-- /.card-body -->
-  
-                  <div class="card-footer">
-                    <button type="submit" class="btn btn-primary" onclick="addTeam()">Submit</button>
-                  </div>
-                </form>
-              </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-
-          <!-- fix for small devices only -->
-          <div class="clearfix hidden-md-up"></div>
-
-          <div class="col-12 col-sm-6 col-md-3">
-
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-
-          <!-- /.col -->
+      <h1 class="content__heading">Add Team</h1>
+      <!-- <p class="content__lede">Use this handy contact form to get in touch with me.</p> -->
+      <form class="content__form contact-form" onsubmit="return false">
+        <div class="contact-form__input-group">
+          <label class="contact-form__label" for="code">Team Code</label>
+          <input class="contact-form__input contact-form__input--number" id="code" name="code" type="number"/>
         </div>
-        <!-- /.row -->
-
-
-        <!-- /.row -->
-      </div><!--/. container-fluid -->
+        <div class="contact-form__input-group">
+          <label class="contact-form__label" for="name">Name</label>
+          <input class="contact-form__input contact-form__input--text" id="name" name="name" type="text"/>
+        </div>
+        <div class="contact-form__input-group">
+          <label class="contact-form__label" for="email">League Name</label>
+          <input class="contact-form__input contact-form__input--text" id="league_name" name="league_name" type="text"/>
+        </div>
+        <div class="contact-form__input-group">
+          <label class="contact-form__label" for="email">League ID</label>
+          <input class="contact-form__input contact-form__input--number" id="league_id" name="league_id" type="number"/>
+        </div>
+        <div class="contact-form__input-group">
+        </div>
+        <input name="secret" type="hidden" value="1b3a9374-1a8e-434e-90ab-21aa7b9b80e7"/>
+        <button class="contact-form__button" type="submit" onclick="addTeam()">Add Team</button>
+      </form>
     </section>
     <!-- /.content -->
   </div>

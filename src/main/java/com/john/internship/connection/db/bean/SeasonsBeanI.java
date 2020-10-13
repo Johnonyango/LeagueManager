@@ -9,5 +9,5 @@ public interface SeasonsBeanI {
     List<Seasons> show();
     Seasons load(int seasonId) throws Exception;
     String drop(int seasonId) throws Exception;
-
+    Seasons search(int id) throws Exception;
 }

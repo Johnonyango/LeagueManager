@@ -17,7 +17,6 @@
       <div class="site-mobile-menu-body"></div>
     </div>
 
-
   <%@ include file = "header.html"%>
 
 
@@ -26,7 +25,7 @@
         <div class="row align-items-center">
           <div class="col-lg-5 ml-auto">
             <h1 class="text-white">Soccer Mama Yao</h1>
-            <p>We nurture talents. We nurture soccer. Checkout out for open seasons to sign up in a league</p>
+            <p>We nurture talents. We nurture soccer. Checkout our open seasons</p>
             <!--<div id="date-countdown"></div>
             <p>
               <a href="#" class="btn btn-primary py-3 px-4 mr-3">Book Ticket</a>
@@ -86,21 +85,34 @@
           <div class="col-lg-10">
 
             <div class="widget-next-match">
-              <h1 style="text-align: center;">Top League</h1>
+              <h1 style="text-align: center;">Top Leagues</h1>
               <table class="table custom-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <!-- <th>Level</th>
+                    <th>Season</th> -->
+                  </tr>
+                </thead>
+                <tbody id="league">
+    
+                </tbody>
+              </table>
+
+              <!--<table class="table custom-table">
                 <thead>
                   <tr>
                     <th>P</th>
                     <th>Name</th>
                     <th>PW</th>
                     <th>Points</th>
-                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody id="table">
 
                 </tbody>
-              </table>
+              </table> -->
             </div>
 
           </div>
@@ -121,11 +133,10 @@
             <div class="widget mb-3">
               <h3>News</h3>
               <ul class="list-unstyled links">
-                <li><a href="#">All</a></li>
+                <li><a href="https://bleacherreport.com/random-sports">All Sports</a></li>
                 <li><a href="#">Club News</a></li>
-                <li><a href="#">Media Center</a></li>
+                <li><a href="#">Top Scorers</a></li>
                 <li><a href="#">Video</a></li>
-                <li><a href="#">RSS</a></li>
               </ul>
             </div>
           </div>
@@ -133,10 +144,10 @@
             <div class="widget mb-3">
               <h3>Tickets</h3>
               <ul class="list-unstyled links">
-                <li><a href="#">Online Ticket</a></li>
+                <li><a href="#">Team Registration</a></li>
                 <li><a href="#">Payment and Prices</a></li>
-                <li><a href="#">Contact &amp; Booking</a></li>
-                <li><a href="#">Tickets</a></li>
+                <!--<li><a href="#">Contact &amp; Booking</a></li> -->
+                <li><a href="#">Match Tickets</a></li>
                 <li><a href="#">Coupon</a></li>
               </ul>
             </div>
@@ -145,11 +156,10 @@
             <div class="widget mb-3">
               <h3>Matches</h3>
               <ul class="list-unstyled links">
-                <li><a href="#">Standings</a></li>
+                <li><a href="#">Top Leagues</a></li>
                 <li><a href="#">World Cup</a></li>
-                <li><a href="#">La Lega</a></li>
-                <li><a href="#">Hyper Cup</a></li>
-                <li><a href="#">World League</a></li>
+                <li><a href="#">Club Friendlies</a></li>
+                <li><a href="#">Open Seasons</a></li>
               </ul>
             </div>
           </div>
@@ -158,10 +168,10 @@
             <div class="widget mb-3">
               <h3>Social</h3>
               <ul class="list-unstyled links">
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Youtube</a></li>
+                <li><a href="https://twitter.com/JohYaya">Twitter</a></li>
+                <li><a href="https://www.facebook.com/john.yayaz.5">Facebook</a></li>
+                <li><a href="https://www.instagram.com/j.yayyah/?hl=en">Instagram</a></li>
+                <li><a href="https://www.youtube.com/watch?v=iyVoFBHNpXs">Youtube</a></li>
               </ul>
             </div>
           </div>
@@ -195,24 +205,40 @@
 
 
   <script src="js/main.js"></script>
-    <script>
-    $.getJSON('Table', function(data){
-      var content = '';
-      for(var i = 0; i<data.length; i++){
-        var leagueTable = data[i];
-        content+=`<tr>
-                    <td>${i+1}</td>
-                    <td><strong class="text-white">${leagueTable.name}</strong></td>
-                    <td>${leagueTable.numberOfGames}</td>
-                    <td>${leagueTable.points}</td>
-                    <td>${leagueTable.action}</td>
-                  </tr>`;
-      }
-      $('#table').html(content);
-    });
+ 
+  <script>
+    // $.getJSON('Table', function(data){
+    //   var content = '';
+    //   for(var i = 0; i<data.length; i++){
+    //     var leagueTable = data[i];
+    //     content+=`<tr>
+    //                 <td>${i+1}</td>
+    //                 <td><strong class="text-white">${leagueTable.name}</strong></td>
+    //                 <td>${leagueTable.numberOfGames}</td>
+    //                 <td>${leagueTable.points}</td>
+    //               </tr>`;
+    //   }
+    //   $('#table').html(content);
+    // });
     
-    </script>
+// fetrching teams
+    function teamsInLeague(id){
+    window.location.href = 'teamsInALeague.jsp?id='+ id;
+  }
 
+  // Fetch leagues
+  $.getJSON('./rest/league/show', function(data){
+    var content = '';
+    for(var i = 0; i<data.length; i++){
+      var league = data[i];
+      content+=`<tr>
+                  <td><strong class="text-white"><a href='viewLeagues.jsp?id=${league.id}'>${league.leagueName}</strong></td>
+                  <td <strong class="text-white">${league.country}</td>
+                </tr>`;
+    }
+    $('#league').html(content);
+  });
+    </script>
 
 
 </body>

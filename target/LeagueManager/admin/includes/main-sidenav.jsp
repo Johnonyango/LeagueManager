@@ -13,11 +13,12 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">User</a>
+              <a href="#" class="d-block"><%=user.getUsername().toUpperCase()%></a> 
+              <a href="../Auth" class="d-block">LOGOUT</a>
         </div>
       </div>
 
-      <!-- SidebarSearch Form -->
+      <!-- SidebarSearch Form 
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
@@ -27,7 +28,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -44,7 +45,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.jsp" class="nav-link">
+                <a href="./allLeagues.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Home Dashboard</p>
                 </a>
@@ -55,6 +56,13 @@
                   <p>Add Leagues</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="./allLeagues.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Leagues</p>
+                </a>
+              </li>
+             
               <li class="nav-item">
                 <a href="./teams.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -113,7 +121,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href=".../seasons.jsp" class="nav-link">
+                <a href="../seasons.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Seasons</p>
                 </a>

@@ -49,7 +49,7 @@ public class TeamsServlet extends HttpServlet {
             System.out.println(ex.getCause().getMessage());
         }
         try {
-            resp.getWriter().print(teamsBean.add(teams));
+          resp.getWriter().print(teamsBean.add(teams));
         } catch (Exception e) {
             e.printStackTrace();
         }

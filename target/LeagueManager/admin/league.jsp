@@ -31,64 +31,30 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
+
     <section class="content">
-      <div class="container-fluid">
-        <!-- Info boxes -->
-        <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-6">
-            <div class="card card-primary">
-                <div class="card-header">
-                  <h3 class="card-title">Add League</h3>
-                </div>
-                <!-- /.card-header -->
-                <!-- form start -->
-                <form onsubmit="return false">
-                  <div class="card-body">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">League Name</label>
-                      <input type="text" class="form-control" id="league-name" placeholder="League Name">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Country</label>
-                      <input type="text" class="form-control" id="country" placeholder="country">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Level</label>
-                        <input type="number" class="form-control" id="level" placeholder="League level">
-                      </div>
-                   
-                  </div>
-                  <!-- /.card-body -->
-  
-                  <div class="card-footer">
-                    <button type="submit" class="btn btn-primary" onclick="addLeague()">Submit</button>
-                  </div>
-                </form>
-              </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-
-          <!-- fix for small devices only -->
-          <div class="clearfix hidden-md-up"></div>
-
-          <div class="col-12 col-sm-6 col-md-3">
-
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-
-          <!-- /.col -->
+      <h1 class="content__heading">Add League</h1>
+      <!-- <p class="content__lede">Use this handy contact form to get in touch with me.</p> -->
+      <form class="content__form contact-form" onsubmit="return false">
+        <div class="contact-form__input-group">
+          <label class="contact-form__label" for="code">League Name</label>
+          <input class="contact-form__input contact-form__input--text" id="league-name" name="code" type="text"/>
         </div>
-        <!-- /.row -->
+        <div class="contact-form__input-group">
+          <label class="contact-form__label" for="name">Country</label>
+          <input class="contact-form__input contact-form__input--text" id="country" name="country" type="text"/>
+        </div>
+        <div class="contact-form__input-group">
+          <label class="contact-form__label" for="email">Level</label>
+          <input class="contact-form__input contact-form__input--number" id="level" name="level" type="number"/>
+        </div>
+        <div class="contact-form__input-group">
 
+        </div>
 
-        <!-- /.row -->
-      </div><!--/. container-fluid -->
+        <input name="secret" type="hidden" value="1b3a9374-1a8e-434e-90ab-21aa7b9b80e7"/>
+        <button class="contact-form__button" type="submit" onclick="addLeague()">Add League</button>
+      </form>
     </section>
     <!-- /.content -->
   </div>

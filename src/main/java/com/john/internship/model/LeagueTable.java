@@ -8,9 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 @Entity
 @Table(name = "league_table")
+@NamedQueries({
+        @NamedQuery(name = "LeagueTable.findPoints", query = "SELECT t FROM LeagueTable t where t.name=:name "),
+        @NamedQuery(name = "LeagueTable.updateTable", query = "UPDATE LeagueTable t set t.points=:p where t.name=:name "),
+        @NamedQuery(name = "LeagueTable.getTableByLeagueId", query = " SELECT t from LeagueTable t WHERE t.leagueId = :leagueId ORDER BY t.points DESC" ),
+
+
+})
 public class LeagueTable extends BaseEntity{
-
-
 
     @Column
     private String teamCode;
@@ -22,7 +27,10 @@ public class LeagueTable extends BaseEntity{
     private long numberOfGames;
 
     @Column
-    private long points;
+    private int points;
+
+    @Column
+    private int leagueId;
 
 //    @OneToOne(mappedBy = "leagueTable", cascade = CascadeType.ALL)
 //    List<League>leagues = new ArrayList<>();
@@ -54,14 +62,21 @@ public class LeagueTable extends BaseEntity{
         this.numberOfGames = numberOfGames;
     }
 
-    public long getPoints() {
+    public int getPoints() {
         return points;
     }
 
-    public void setPoints(long points) {
+    public void setPoints(int points) {
         this.points = points;
     }
 
+    public int getLeagueId() {
+        return leagueId;
+    }
+
+    public void setLeagueId(int leagueId) {
+        this.leagueId = leagueId;
+    }
 //    @JsonIgnore
 //    public List<League> getLeagues() {
 //        return leagues;

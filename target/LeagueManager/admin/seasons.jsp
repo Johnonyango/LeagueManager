@@ -20,13 +20,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard v2</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v2</li>
-            </ol>
+
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -34,64 +30,30 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
+
     <section class="content">
-      <div class="container-fluid">
-        <!-- Info boxes -->
-        <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-6">
-            <div class="card card-primary">
-                <div class="card-header">
-                  <h3 class="card-title">Start a Season</h3>
-                </div>
-                <!-- /.card-header -->
-                <!-- form start -->
-                <form onsubmit="return false">
-                  <div class="card-body">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">From Date</label>
-                      <input type="date" class="form-control" id="from_date" placeholder="Date started">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">To Date</label>
-                      <input type="date" class="form-control" id="to_date" placeholder="End date">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Status</label>
-                        <input type="text" class="form-control" id="status" placeholder="Season status">
-                      </div>
-                   
-                  </div>
-                  <!-- /.card-body -->
-  
-                  <div class="card-footer">
-                    <button type="submit" class="btn btn-primary" onclick="addSeason()">Submit</button>
-                  </div>
-                </form>
-              </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-
-          <!-- fix for small devices only -->
-          <div class="clearfix hidden-md-up"></div>
-
-          <div class="col-12 col-sm-6 col-md-3">
-
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-
-          <!-- /.col -->
+      <h1 class="content__heading">Start a Season</h1>
+      <!-- <p class="content__lede">Use this handy contact form to get in touch with me.</p> -->
+      <form class="content__form contact-form" onsubmit="return false">
+        <div class="contact-form__input-group">
+          <label class="contact-form__label" for="code">From Date</label>
+          <input class="contact-form__input contact-form__input--text" id="from_date" name="from_date" type="date"/>
         </div>
-        <!-- /.row -->
+        <div class="contact-form__input-group">
+          <label class="contact-form__label" for="name">To Date</label>
+          <input class="contact-form__input contact-form__input--text" id="to_date" name="to_date" type="date"/>
+        </div>
+        <div class="contact-form__input-group">
+          <label class="contact-form__label" for="email">Status</label>
+          <input class="contact-form__input contact-form__input--number" id="status" name="status" type="text"/>
+        </div>
+        <div class="contact-form__input-group">
 
+        </div>
 
-        <!-- /.row -->
-      </div><!--/. container-fluid -->
+        <input name="secret" type="hidden" value="1b3a9374-1a8e-434e-90ab-21aa7b9b80e7"/>
+        <button class="contact-form__button" type="submit" onclick="addSeason()">Start a Season</button>
+      </form>
     </section>
     <!-- /.content -->
   </div>
@@ -128,9 +90,7 @@
 <!-- ChartJS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
 
-<!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard2.js"></script>
 <script src="js/admin.js"></script>
 

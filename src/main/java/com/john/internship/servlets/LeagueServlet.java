@@ -31,7 +31,7 @@ public class LeagueServlet extends HttpServlet {
         try {
             if (league != null && StringUtils.isNotBlank(league.getAction())
                     && league.getAction().equalsIgnoreCase("load") && league.getId() != 0) {
-                resp.getWriter().print(mapper.writeValueAsString(leagueBean.load(league.getId())));
+                //resp.getWriter().print(mapper.writeValueAsString(leagueBean.load(league.getId())));
 
             } else
                 resp.getWriter().print(mapper.writeValueAsString(leagueBean.show()));

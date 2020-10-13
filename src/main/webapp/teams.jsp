@@ -7,6 +7,10 @@
 <body>
   <%@ include file = "header.html"%>
 
+  <%@ include file = "background.jsp"%>
+
+
+
 <div class="site-wrap">
     <div class="site-section bg-dark">
         <div class="container">
@@ -23,7 +27,6 @@
                 <th>Name</th>
                 <th>Code</th>
                 <th>League</th>
-                <th>Action</th>
               </tr>
 
             </thead>
@@ -50,9 +53,8 @@
         var teamsTable = data[i];
         content+=`<tr>
                     <td><strong class="text-white">${teamsTable.name}</strong></td>
-                    <td>${teamsTable.code}</td>
-                    <td>${teamsTable.leagueName}</td>
-                     <td>${teamsTable.action}</td>
+                    <td><strong class="text-white">${teamsTable.code}</strong></td>
+                    <td><strong class="text-white">${teamsTable.leagueName}</strong></td>
                   </tr>`;
       }
       $('#team').html(content);

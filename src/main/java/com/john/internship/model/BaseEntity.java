@@ -8,12 +8,12 @@ import java.util.Date;
 public abstract class BaseEntity implements Serializable {
 
 @Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+@GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-@Column(name = "time_created")
-@Temporal(TemporalType.TIMESTAMP)
-   private Date timeCreated;
+//@Column(name = "time_created")
+//@Temporal(TemporalType.TIMESTAMP)
+  // private Date timeCreated;
 
 
     public int getId() {
@@ -24,11 +24,11 @@ public abstract class BaseEntity implements Serializable {
         this.id = id;
     }
 
-    public Date getTimeCreated() {
-        return timeCreated;
-    }
+    //public Date getTimeCreated() {
+      //  return timeCreated;
+    //}
 
-    public void setTimeCreated(Date timeCreated) {
-        this.timeCreated = timeCreated;
-    }
+    //public void setTimeCreated(Date timeCreated) {
+        //this.timeCreated = timeCreated;
+   // }
 }

@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.util.List;
 
 public interface LeagueBeanI {
-
+    public League getByName(String name);
     public League load(int leagueId) throws Exception;
     String create(League league) throws Exception;
     List<League> show() throws Exception;

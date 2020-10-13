@@ -20,13 +20,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard v2</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v2</li>
-            </ol>
+
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -34,66 +30,33 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Info boxes -->
-        <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <!-- /.info-box -->
+      <section class="content">
+        <h1 class="content__heading">Add a Table</h1>
+        <!-- <p class="content__lede">Use this handy contact form to get in touch with me.</p> -->
+        <form class="content__form contact-form" onsubmit="return false">
+          <div class="contact-form__input-group">
+            <label class="contact-form__label" for="code">Team Name</label>
+            <input class="contact-form__input contact-form__input--text" id="team-name" name="code" type="text"/>
           </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-6">
-            <div class="card card-primary">
-                <div class="card-header">
-                  <h3 class="card-title">Add Table</h3>
-                </div>
-                <!-- /.card-header -->
-                <!-- form start -->
-                <form onsubmit="return false">
-                  <div class="card-body">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Name</label>
-                      <input type="text" class="form-control" id="team-name" placeholder="Team Name">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Team Code</label>
-                      <input type="text" class="form-control" id="code" placeholder="Team Code">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Number of Games</label>
-                        <input type="number" class="form-control" id="games" placeholder="Games Played">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Points</label>
-                        <input type="number" class="form-control" id="points" placeholder="Points">
-                      </div>
-                  </div>
-                  <!-- /.card-body -->
-                  <div class="card-footer">
-                    <button type="submit" class="btn btn-primary" onclick="addTable()">Submit</button>
-                  </div>
-                </form>
-              </div>
-              <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-  
-            <!-- fix for small devices only -->
-            <div class="clearfix hidden-md-up"></div>
-  
-            <div class="col-12 col-sm-6 col-md-3">
-  
-              <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-  
-            <!-- /.col -->
+          <div class="contact-form__input-group">
+            <label class="contact-form__label" for="name">Team Code</label>
+            <input class="contact-form__input contact-form__input--text" id="code" name="country" type="text"/>
           </div>
-          <!-- /.row -->
+          <div class="contact-form__input-group">
+            <label class="contact-form__label" for="email">Games played</label>
+            <input class="contact-form__input contact-form__input--number" id="games" name="games" type="number"/>
+          </div>
+          <div class="contact-form__input-group">
+            <label class="contact-form__label" for="email">Points</label>
+            <input class="contact-form__input contact-form__input--number" id="points" name="points" type="number"/>
+          </div>
+          <div class="contact-form__input-group">
   
+          </div>
   
-          <!-- /.row -->
-        </div><!--/. container-fluid -->
+          <input name="secret" type="hidden" value="1b3a9374-1a8e-434e-90ab-21aa7b9b80e7"/>
+          <button class="contact-form__button" type="submit" onclick="addTable()">Add a Table</button>
+        </form>
       </section>
       <!-- /.content -->
     </div>

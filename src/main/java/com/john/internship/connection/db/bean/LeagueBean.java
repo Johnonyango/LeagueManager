@@ -1,10 +1,12 @@
 package com.john.internship.connection.db.bean;
 import com.john.internship.model.League;
+import com.john.internship.model.Teams;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 @Stateless
@@ -15,15 +17,27 @@ public class LeagueBean implements LeagueBeanI {
     private EntityManager em;
 
     public String create(League league) throws Exception {
-        if (league == null || league.getName() == null)
+        if (league == null || league.getLeagueName() == null)
             throw new Exception("No valid table name provided");
         em.merge(league);
         return "Success";
     }
 
     @Override
-    public List<League> show() throws Exception {
+    public List<League> show() {
         return em.createQuery("FROM League league").getResultList();
+    }
+
+    public League getByName(String name) {
+        try {
+            Query query = em.createNamedQuery("League.findByName", League.class);
+            query.setParameter("name", name);
+            return (League) query.getSingleResult();
+        }
+        catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return null;
     }
 
     @Override

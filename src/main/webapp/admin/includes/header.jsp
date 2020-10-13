@@ -1,3 +1,22 @@
+<%@page import="java.util.Enumeration"%>
+<%@page import="com.john.internship.model.Users"%>
+
+
+  <%!Users user = null;%>
+
+<%
+    Enumeration<String> vals = session.getAttributeNames();
+    while (vals.hasMoreElements()) {
+        String nextElement = vals.nextElement();
+        if (nextElement.equalsIgnoreCase("user")) {
+            user = (Users) session.getAttribute("user");
+        }
+    }
+    if (user == null) {
+        response.sendRedirect("../login.jsp");
+        return;
+    }
+%>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,4 +30,6 @@
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="includes/form.css">
+
 </head>

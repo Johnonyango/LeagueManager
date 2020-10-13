@@ -8,6 +8,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "teams_table")
+@NamedQueries({
+        @NamedQuery(name = "Teams.findByName", query = "SELECT t FROM Teams t WHERE t.name = :name"),
+        @NamedQuery(name = "Teams.getTeamsByLeagueId", query = " SELECT t from Teams t WHERE t.leagueId = :leagueId" ),
+
+})
 public class Teams extends BaseEntity {
 
     @Column
@@ -16,13 +21,15 @@ public class Teams extends BaseEntity {
     @Column
     private String code;
 
-    @ManyToOne
-    private League league;
+    //@ManyToOne
+    //private League league;
 
-    @Formula("(select lig.name from leagues lig where lig.id=league_id)") //Pending query
+    //@Formula("(select lig.leagueName from leagues lig where lig.id=league_id)") //Pending query
+    @Column
     private String leagueName;
 
-    @Formula("coalesce(league_id,0)") //Pending subQuery
+    //@Formula("coalesce(league_id,0)") //Pending subQuery
+    @Column
     private int leagueId;
 
     @Column
@@ -49,22 +56,22 @@ public class Teams extends BaseEntity {
         this.code = code;
     }
 
-    @JsonIgnore
-    public League getLeague() {
-        return league;
-    }
+   // @JsonIgnore
+   // public League getLeague() {
+     //   return league;
+   // }
 
-    public void setLeague(League league) {
-        this.league = league;
-    }
+   ///public void setLeague(League league) {
+      // this.league = league;
+   ///}
 
     public String getLeagueName() {
         return leagueName;
-    }
+   }
 
     public void setLeagueName(String leagueName) {
-        this.leagueName = leagueName;
-    }
+       this.leagueName = leagueName;
+   }
 
     public int getLeagueId() {
         return leagueId;

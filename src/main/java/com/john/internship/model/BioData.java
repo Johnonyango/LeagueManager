@@ -23,9 +23,9 @@ public class BioData {
     @Column(name = "club_name")
     private String club;
 
-    @Column
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
+   // @Column
+    //@Enumerated(EnumType.STRING)
+   // private Gender gender;
 
     public String getFirstName() {
         return firstName;
@@ -67,11 +67,11 @@ public class BioData {
         this.club = club;
     }
 
-    public Gender getGender() {
-        return gender;
-    }
+    //public Gender getGender() {
+       // return gender;
+    //}
 
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
+   // public void setGender(Gender gender) {
+       // this.gender = gender;
+   // }
 }

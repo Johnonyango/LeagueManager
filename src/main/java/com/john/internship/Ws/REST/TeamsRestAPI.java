@@ -2,6 +2,7 @@ package com.john.internship.Ws.REST;
 
 
 import com.john.internship.connection.db.bean.TeamsBeanI;
+import com.john.internship.model.League;
 import com.john.internship.model.Teams;
 
 import javax.ejb.EJB;
@@ -18,10 +19,23 @@ public class TeamsRestAPI {
     @GET
     @Path("/show")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response show(@PathParam(value = "name") String name) throws Exception {
+    public Response show() throws Exception {
 
-        System.out.println("Path param name: " + name);
         return Response.status(200).entity(teamsBean.show()).build();
+    }
+
+    @GET
+    @Path("/show/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response show(@PathParam(value = "id") int id ) throws Exception { ;
+        return Response.status(200).entity(teamsBean.show()).build();
+    }
+
+    @GET
+    @Path(value = "/findByName/{name}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Teams getTeamByName(@PathParam(value = "name") String name) throws Exception {
+        return teamsBean.searchByName(name);
     }
 
 
@@ -38,6 +52,7 @@ public class TeamsRestAPI {
 
         return "{\"SUCCESS\":\"OK\"}";
     }
+
     @DELETE
     @Path("/delete/{id}")
     @Consumes(MediaType.APPLICATION_JSON)

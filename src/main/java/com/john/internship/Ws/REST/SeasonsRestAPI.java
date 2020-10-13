@@ -4,6 +4,7 @@ package com.john.internship.Ws.REST;
 
 import com.john.internship.connection.db.bean.SeasonsBeanI;
 import com.john.internship.model.Seasons;
+import com.john.internship.model.Teams;
 
 import javax.ejb.EJB;
 import javax.ws.rs.*;
@@ -25,6 +26,12 @@ public class SeasonsRestAPI {
         return Response.status(200).entity(seasonsBean.show()).build();
     }
 
+    @GET
+    @Path(value = "/findById/{id}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Seasons getTeamById(@PathParam(value = "name") int id) throws Exception {
+        return seasonsBean.search(id);
+    }
 
     @POST
     @Path("/save")

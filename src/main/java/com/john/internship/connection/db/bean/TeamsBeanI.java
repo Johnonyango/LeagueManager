@@ -9,6 +9,9 @@ public interface TeamsBeanI {
     String add(Teams teams) throws Exception;
     List<Teams> show() throws Exception;
     public Teams load(int teamId) throws Exception;
-    public League search(int teamId) throws Exception;
+    public Teams searchByName(String name) throws Exception;
     String remove(int teamId) throws Exception;
+    int teamPoints(int points) throws Exception;
+    List<Teams> getByLeagueId(int leagueId)  ;
+
 }

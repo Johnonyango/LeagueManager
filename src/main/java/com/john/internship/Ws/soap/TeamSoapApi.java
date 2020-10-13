@@ -21,6 +21,12 @@ public class TeamSoapApi {
     public List<Teams> show() throws Exception {
         return teamsBean.show();
     }
+
+    @WebMethod(operationName = "getByName")
+    public Teams getRoomByName(@WebParam(name = "name") String name) throws Exception {
+        return teamsBean.searchByName(name);
+    }
+
     @WebMethod(operationName = "save")
     public String save(@WebParam Teams team) throws Exception {
         return teamsBean.add(team);

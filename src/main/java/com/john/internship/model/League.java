@@ -11,10 +11,16 @@ import java.util.List;
 
 @Entity
 @Table(name = "leagues")
+@NamedQueries({
+        @NamedQuery(name = "League.deleteLeagueById", query = "delete FROM League l where l.id = :id"),
+        @NamedQuery(name = "League.findById", query = "SELECT l FROM League l WHERE l.id = :id"),
+        @NamedQuery(name = "League.findByName", query = "SELECT l FROM League l WHERE l.leagueName = :name"),
+        @NamedQuery(name = "League.select leagues", query = " SELECT l from League l  WHERE l.seasonId = :seasonId order by l.leagueName" ),
+})
 public class League extends BaseEntity{
 
     @Column
-    private String name;
+    private String leagueName;
 
     @Column
     private String country;
@@ -22,29 +28,31 @@ public class League extends BaseEntity{
     @Column
     private int level;
 
-    @ManyToOne
-   private Seasons seasons;
+    //@ManyToOne
+   //private Seasons seasons;
 
-    @OneToMany(mappedBy = "league", cascade = CascadeType.ALL)
-    private List<Teams>teams = new ArrayList<>();
+    //@OneToMany(mappedBy = "league", cascade = CascadeType.ALL)
+   // private List<Teams>teams = new ArrayList<>();
 
    // @Formula("(select s.name from seasons s where s.id=id)") //Pending query
-    private String leagueName;
+    //private String leagueName;
 
    // @Formula("coalesce(season_id,0)") //Pending subQuery
+
+    @Column
     private int seasonId;
 
     @Transient
     private String action;
 
 
-    public String getName() {
-        return name;
-    }
+   // public String getName() {
+       // return name;
+  //  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+   // public void setName(String name) {
+    //    this.name = name;
+    //}
 
     public String getCountry() {
         return country;
@@ -62,27 +70,27 @@ public class League extends BaseEntity{
         this.level = level;
     }
 
-    public Seasons getSeasons() {
-       return seasons;
-    }
+    //public Seasons getSeasons() {
+      //return seasons;
+   // }
 
-    public void setSeasons(Seasons seasons) {
-       this.seasons = seasons;
-    }
+    //public void setSeasons(Seasons seasons) {
+    //  this.seasons = seasons;
+   //}
 
-    @XmlTransient
-    @JsonIgnore
-    public List<Teams> getTeams() {
-        return teams;
-    }
+   // @XmlTransient
+   // @JsonIgnore
+   // public List<Teams> getTeams() {
+       // return teams;
+    //}
 
 
-    public void setTeams(List<Teams> teams) {
-        this.teams = teams;
-    }
+    //public void setTeams(List<Teams> teams) {
+      //  this.teams = teams;
+  //  }
 
     public String getLeagueName() {
-        return leagueName;
+       return leagueName;
     }
 
     public void setLeagueName(String leagueName) {
@@ -97,10 +105,10 @@ public class League extends BaseEntity{
         this.seasonId = leagueId;
     }
 
-    public void addTeam(Teams team){
-        team.setLeague(this);
-        this.teams.add(team);
-    }
+    //public void addTeam(Teams team){
+       // team.setLeague(this);
+       // this.teams.add(team);
+    //}
 
     @JsonIgnore
     public String getAction() {

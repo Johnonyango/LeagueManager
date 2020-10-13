@@ -19,14 +19,22 @@ public class LeagueSoapApi {
     public List<League> show(@WebParam League league) throws Exception {
         return leagueBean.show();
     }
+
+    @WebMethod(operationName = "getByName")
+    public League getRoomByName(@WebParam(name = "name") String name) {
+        return leagueBean.getByName(name);
+    }
+
     @WebMethod(operationName = "save")
     public String save(@WebParam League league) throws Exception {
         return leagueBean.create(league);
     }
     @WebMethod(operationName = "update")
-    public League update(@WebParam int leagueId) throws Exception {
-        return leagueBean.load(leagueId);
+    public void update(@WebParam int leagueId) throws Exception {
+        leagueBean.load(leagueId);
     }
+
+
     @WebMethod(operationName = "delete")
     public String delete(@WebParam int leagueId) throws Exception {
         return leagueBean.remove(leagueId);

@@ -6,6 +6,8 @@
 <html>
 <body>
   <%@ include file = "header.html"%>
+  <%@ include file = "background.jsp"%>
+
 
 <div class="site-wrap">
     <div class="site-section bg-dark">
@@ -23,7 +25,7 @@
                 <th>Name</th>
                 <th>Country</th>
                 <th>Level</th>
-                 <th>Action</th>
+                <th>Season</th>
               </tr>
             </thead>
             <tbody id="league">
@@ -46,13 +48,12 @@
     $.getJSON('League', function(data){
       var content = '';
       for(var i = 0; i<data.length; i++){
-        var leagueTable = data[i];
+        var league = data[i];
         content+=`<tr>
-                    <td>${i+1}</td>
-                    <td><strong class="text-white">${leagueTable.name}</strong></td>
-                    <td>${leagueTable.numberOfGames}</td>
-                    <td>${leagueTable.points}</td>
-                    <td>${leagueTable.action}</td>
+                    <td><strong class="text-white">${league.leagueName}</strong></td>
+                    <td<strong class="text-white">${league.country}</td>
+                    <td <strong class="text-white">${league.level}</td>
+                    <td <strong class="text-white">${league.leagueId}</td>
                   </tr>`;
       }
       $('#league').html(content);

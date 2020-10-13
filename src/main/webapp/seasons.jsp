@@ -6,6 +6,7 @@
 <html>
 <body>
   <%@ include file = "header.html"%>
+  <%@ include file = "background.jsp"%>
 
 <div class="site-wrap">
     <div class="site-section bg-dark">
@@ -23,7 +24,6 @@
                 <th>ID</th>
                 <th>From</th>
                 <th>To</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody id="seasons">
@@ -49,9 +49,8 @@
         var seasons = data[i];
         content+=`<tr>
                     <td><strong class="text-white">${seasons.id}</strong></td>
-                    <td>${seasons.fromYear}</td>
-                    <td>${seasons.toYear}</td>
-                    <td>${leagueTable.action}</td>
+                    <td<strong class="text-white">${seasons.fromYear}</td>
+                    <td <strong class="text-white">${seasons.toYear}</td>
                   </tr>`;
       }
       $('#seasons').html(content);
