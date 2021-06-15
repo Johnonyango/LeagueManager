@@ -3,9 +3,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                git 
+                sh './mvnrw clean compile'
             }
         }
     }
