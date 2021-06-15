@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 
+                git 'https://github.com/Johnonyango/LeagueManager.git
                 sh './mvnrw clean compile'
             }
         }
